@@ -102,14 +102,14 @@ app.add_middleware(
 # =============== МОДЕЛИ ДАННЫХ ===============
 
 class PlayerAuthRequest(BaseModel):
-    wallet_address: str = Field(..., regex=r"^0x[a-fA-F0-9]{40}$")
+    wallet_address: str = Field(..., pattern=r"^0x[a-fA-F0-9]{40}$")
     signature: str = Field(..., min_length=132, max_length=132)
     message: str
 
 class BetRequest(BaseModel):
     number: int = Field(..., ge=0, le=36, description="Номер от 0 до 36")
     amount: float = Field(..., gt=0, description="Размер ставки в ETH")
-    player_address: str = Field(..., regex=r"^0x[a-fA-F0-9]{40}$")
+    player_address: str = Field(..., pattern=r"^0x[a-fA-F0-9]{40}$")
     
     @validator('amount')
     def validate_amount(cls, v):
