@@ -55,4 +55,18 @@ coverage/
 
 # Logs
 logs/
-*.log 
+*.log
+
+# Service scripts (prevent future clutter)
+*.cmd
+*.bat
+*.ps1
+!deploy.ps1
+!setup.ps1
+
+# Documentation drafts
+*_DRAFT.md
+*_TEMP.md
+SESSION_*.md
+*_SUMMARY.md
+CLEANUP_*.md
